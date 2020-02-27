@@ -15,17 +15,21 @@
 
 from __future__ import print_function
 
+import sys
+
+sys.path.insert(0, '/home/ericktakeshi/loggi/grpc-python-client/gen_proto/')
+
 import logging
 
 import grpc
 
-import example_pb2
-import example_pb2_grpc
+import gen_proto.one.order.v1.pickup_scheduler_api_pb2 as pickup_scheduler_api_pb2
+import gen_proto.one.order.v1.pickup_scheduler_api_pb2_grpc as pickup_scheduler_api_pb2_grpc
 
 
 def greet(stub):
-    request = example_pb2.HelloRequest(name='My name')
-    response = stub.SayHello(request)
+    request = pickup_scheduler_api_pb2.PickupOrderScheduleRequest(id=1)
+    response = stub.PickupOrderSchedule(request)
     print(response)
 
 
@@ -34,8 +38,7 @@ def run():
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
     with grpc.insecure_channel('localhost:50051') as channel:
-        stub = example_pb2_grpc.GreeterStub(channel)
-        print("-------------- Greeter --------------")
+        stub = pickup_scheduler_api_pb2_grpc.PickupSchedulerAPIStub(channel)
         greet(stub)
 
 
