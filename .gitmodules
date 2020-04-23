@@ -1,0 +1,4 @@
+[submodule "libs/xproto"]
+	path = libs/xproto
+	url = git@github.com:loggi/xproto.git
+	branch = master

@@ -28,8 +28,8 @@ import gen_proto.one.order.v1.pickup_scheduler_api_pb2_grpc as pickup_scheduler_
 
 
 def greet(stub):
-    request = pickup_scheduler_api_pb2.PickupOrderScheduleRequest(id=1)
-    response = stub.PickupOrderSchedule(request)
+    request = pickup_scheduler_api_pb2.GetPickupOrderScheduleRequest(id=290)
+    response = stub.GetPickupOrderSchedule(request)
     print(response)
 
 

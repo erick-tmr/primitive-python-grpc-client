@@ -130,3 +130,6 @@ dmypy.json
 
 # virtualenv
 virtualenvironment
+
+gen_proto
+
